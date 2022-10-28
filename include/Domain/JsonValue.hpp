@@ -99,7 +99,7 @@ inline bool operator!=(const JsonValue& Lhs, const JsonValue& Rhs);
 class JsonValueString : public JsonValue
 {
 public:
-    JsonValueString(const string_view InString);
+    JsonValueString(const std::string_view InString);
 
     virtual bool TryGetString(std::string& OutString) const override;
     virtual bool TryGetNumber(double& OutNumber) const override;
@@ -115,8 +115,8 @@ public:
 protected:
     std::string Value;
 
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "String"; };
+};
 
 
 /** A Json Number Value. */
@@ -132,8 +132,8 @@ public:
 protected:
     double Value;
 
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "Number"; };
+};
 
 
 /** A Json Boolean Value. */
@@ -149,8 +149,8 @@ public:
 protected:
     bool Value;
 
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "Boolean"; };
+};
 
 
 /** A Json Array Value. */
@@ -164,8 +164,8 @@ public:
 protected:
     std::vector<std::shared_ptr<JsonValue>> Value;
 
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "Array"; };
+};
 
 
 /** A Json Object Value. */
@@ -179,8 +179,8 @@ public:
 protected:
     std::shared_ptr<JsonObject> Value;
 
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "Object"; };
+};
 
 
 /** A Json Null Value. */
@@ -190,6 +190,6 @@ public:
     JsonValueNull();
 
 protected:
-    virtual std::string GetType() const override;
-}
+    virtual std::string GetType() const override { return "Null"; };
+};
 } // namespace zexjson

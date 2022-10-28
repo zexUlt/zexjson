@@ -31,4 +31,5 @@ target_include_directories(${PROJECT_NAME}
 target_link_directories(${PROJECT_NAME}
     PUBLIC
         ${SOURCE_CODE_DIR}
+        ${SOURCE_CODE_DIR}/Domain
 )
