@@ -4,3 +4,5 @@
 #include <memory>
 #include <vector>
 #include <string_view>
+#include <istream>
+#include <ostream>
